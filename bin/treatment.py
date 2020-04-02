@@ -56,3 +56,33 @@ class Treatment():
     def get_img_mask(self, matrix):
         # Traitment de l'image pour un affichage du masque
         return 255 * np.stack([matrix, matrix, matrix])
+    
+    def get_data_train(self, list_img, list_mask):
+        # Mise en place des ensembles
+        X_train = np.zeros((11165610, 3 * len(list_img)))
+        Y_train = np.zeros((11165610, 3 * len(list_mask)))
+
+        iter_X = 0
+
+        for img in list_img:
+            aux = img.reshape(-1, 3)
+            
+            for i in range(3):
+                X_train[:,iter_X] = aux[:,i]
+
+                iter_X += 1
+
+        iter_Y = 0
+
+        for mask in list_mask:            
+            for i in range(3):
+                Y_train[:,iter_Y] = mask.reshape(-1)
+
+                iter_Y += 1
+        
+        return X_train, Y_train
+
+
+
+
+
