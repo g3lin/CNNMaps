@@ -3,6 +3,7 @@
 
 import os
 import csv
+import numpy as np
 
 import shapely.wkt
 import tifffile as tiff
@@ -15,6 +16,7 @@ class DataOpening():
         self.size = "grid_sizes.csv"
         self.polygons = "train_wkt_v4.csv"
         self.tiff_three_band = "three_band/{}.tif"
+        self.tiff_sixteen_band = "sixteen_band/{}_M.tif"
 
     def get_size(self, IMG_ID):
         # Recuperer la taille de l'image
@@ -44,6 +46,8 @@ class DataOpening():
     def get_tiff(self, IMG_ID):
         # Recuperer l'image au format .tif
         img_rgb = tiff.imread(os.path.join(self.path, self.tiff_three_band).format(IMG_ID)).transpose([1, 2, 0])
+        img_rgb = img_rgb[:3345,:3338]
+        
         img_size = img_rgb.shape[:2]
 
         return img_rgb, img_size
