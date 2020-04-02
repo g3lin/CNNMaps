@@ -46,8 +46,7 @@ class DataOpening():
     def get_tiff(self, IMG_ID):
         # Recuperer l'image au format .tif
         img_rgb = tiff.imread(os.path.join(self.path, self.tiff_three_band).format(IMG_ID)).transpose([1, 2, 0])
-        img_rgb = img_rgb[:3345,:3338]
         
         img_size = img_rgb.shape[:2]
-
+        
         return img_rgb, img_size

@@ -82,7 +82,12 @@ class Treatment():
         
         return X_train, Y_train
 
+    def set_size(self, img, mask):
+        # Mise a jour de la taille des images
+        img = img[:3345,:3338]
+        mask = mask[:3345,:3338]
 
+        return img, mask
 
 
 
