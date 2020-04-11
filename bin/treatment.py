@@ -41,6 +41,8 @@ class Treatment():
     def get_img_rgb(self, matrix):
         # Traitement de l'image pour un affichage RGB
         w, h, d = matrix.shape
+        #w, h = matrix.size
+        #d = 3
 
         matrix = np.reshape(matrix, [w * h, d]).astype(np.float64)
 
