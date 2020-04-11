@@ -4,9 +4,12 @@
 import os
 import csv
 import numpy as np
+import sys
 
 import shapely.wkt
 import tifffile as tiff
+
+csv.field_size_limit(sys.maxsize)
 
 class DataOpening():
 
@@ -50,3 +53,11 @@ class DataOpening():
         img_size = img_rgb.shape[:2]
         
         return img_rgb, img_size
+
+    def save(self, img, noun_img, dir_img, mask, noun_mask, dir_mask):
+        # Enregistrer les images
+        noun_image_file = dir_img + noun_img
+        image_PIL.save(noun_image_file)
+
+        noun_mask_file = dir_mask + noun_img
+        mask_PIL.save(noun_mask_file)
