@@ -19,3 +19,8 @@ Lien vers la bibliothèque pytorch [Resnet](https://pytorch.org/hub/pytorch_visi
 
 ### Modèle de segmentation
 Lien vers la bibliothèque github [Segmentation Models](https://github.com/qubvel/segmentation_models.pytorch)
+
+## Validation croisée & Recherche d'hyperparamètres
+
+### Calcul Canada
+Lien vers la bibliothèque github [Calcul Canada](https://github.com/lemairecarl/atelier-dl-cc/tree/hpsearch)
